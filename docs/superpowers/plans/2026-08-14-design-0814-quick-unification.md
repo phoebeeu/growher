@@ -38,7 +38,7 @@
 
 - [ ] **Step 1: 在设计合同中增加会失败的令牌检查**
 
-在 `required` 数组加入以下规则：
+先从 `required` 数组删除旧版的 `primary ink token`、`paper background token` 和 `orange accent token` 三条检查；它们要求旧色值，与开发版0814冲突。然后加入以下规则：
 
 ```js
 ['stage blue token', css, /--color-stage:\s*#285D91/i],
@@ -186,6 +186,7 @@ git commit -m "style: align global tokens with design 0814"
 ['12 px card radius token', css, /--radius-card:\s*12px/],
 ['52 px primary button', css, /\.button-primary\s*\{[\s\S]*?min-height:\s*52px/],
 ['52 px input', css, /\.field,[\s\S]*?min-height:\s*52px/],
+['104 px textarea', css, /\.text-area\s*\{[\s\S]*?min-height:\s*104px/],
 ['stage uses design token', css, /\.app-stage\s*\{[\s\S]*?background:\s*var\(--color-stage\)/],
 ['card uses design radius', css, /\.card\s*\{[\s\S]*?border-radius:\s*var\(--radius-card\)/],
 ['purple focus ring', css, /outline:\s*2px solid var\(--color-focus\)/],
@@ -246,8 +247,7 @@ select:focus-visible {
 }
 
 .field,
-.select-field,
-.text-area {
+.select-field {
   width: 100%;
   min-height: 52px;
   border: 1px solid var(--color-border);
@@ -255,6 +255,17 @@ select:focus-visible {
   background: var(--color-surface);
   color: var(--color-primary);
   padding: 10px 14px;
+}
+
+.text-area {
+  width: 100%;
+  min-height: 104px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  padding: 10px 14px;
+  resize: vertical;
 }
 
 .button-primary {
