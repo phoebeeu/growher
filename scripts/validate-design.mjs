@@ -34,6 +34,10 @@ const required = [
   ['system error token', css, /--color-danger:\s*#A63D4B/i],
   ['ui font token', css, /--font-ui:\s*"Noto Sans SC",\s*"PingFang SC",\s*"Microsoft YaHei",\s*system-ui,\s*sans-serif/],
   ['data font token', css, /--font-data:\s*"Martian Mono",\s*ui-monospace,\s*SFMono-Regular,\s*Consolas,\s*monospace/],
+  ['stage background on html', css, /html\s*\{\s*background:\s*var\(--color-stage\)/],
+  ['stage background on app stage', css, /\.app-stage\s*\{[\s\S]*?background:\s*var\(--color-stage\)/],
+  ['52 px single-line fields', css, /\.field,\s*\.select-field,\s*\.text-area\s*\{[\s\S]*?min-height:\s*52px/],
+  ['104 px multiline fields', css, /\.text-area\s*\{\s*min-height:\s*104px/],
   ['five stage progress', source, /currentStep\s*\/\s*totalSteps|\{currentStep\}\s*\/\s*\{totalSteps\}/],
   ['goal panorama stage', source, /目标设定与全景图/],
   ['weekly focus stage', source, /本周时间与重点确认/],
@@ -57,6 +61,8 @@ const forbidden = [
   ['Inter font family', css, /font-family:\s*Inter\b/i],
   ['legacy canvas color', css, /#F7F4EE/i],
   ['legacy orange color', css, /#E87845/i],
+  ['removed radius token references', css, /var\(--radius-(?:md|lg)\)/],
+  ['incomplete Martian font stack', css, /["']Martian Mono["'],\s*Consolas,\s*monospace/],
 ];
 
 const failures = [];
