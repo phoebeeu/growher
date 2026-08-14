@@ -126,6 +126,10 @@ AI API 是第二轮交付。本轮先确保 AI 后续依赖的账号、数据和
 | `user_id` | UUID 主键，关联 `auth.users.id` |
 | `display_name` | 1–30 个字符 |
 | `due_date` | 日期；用于计算孕周，不存储诊断信息 |
+| `manual_correction` | 是否使用用户手动校正的孕周，默认 `false` |
+| `corrected_week` | 手动校正时为 0–42，可空 |
+| `corrected_day` | 手动校正时为 0–6，可空 |
+| `corrected_at` | 手动校正发生的用户本地日期，可空 |
 | `timezone` | 默认 `Asia/Shanghai` |
 | `work_days` | 1–7 的工作日数组 |
 | `work_start` | 每日固定工作开始时间 |
@@ -215,7 +219,7 @@ AI API 是第二轮交付。本轮先确保 AI 后续依赖的账号、数据和
 | `estimated_minutes` | 必须大于 0 |
 | `completion_condition` | 完成条件 |
 | `time_tag` | 固定时段枚举 |
-| `status` | `pending`、`active`、`completed`、`deferred`、`skipped` |
+| `status` | `pending`、`in_progress`、`completed`、`deferred`、`shrunk`、`skipped` |
 | `is_current` | 是否为当前唯一行动 |
 | `adjustment_note` | 重排或缩小任务的说明，可空 |
 | `completed_at` | 完成时间，可空 |
