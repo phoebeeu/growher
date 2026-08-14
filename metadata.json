@@ -1,0 +1,6 @@
+{
+  "name": "孕期目标推进助手",
+  "description": "基于孕期安排与动态能量重排的 AI 目标推进助手",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
